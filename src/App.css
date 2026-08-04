@@ -585,9 +585,10 @@
 .age-notice {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 12px;
 
+  max-width: 420px;
   margin-top: 20px;
   padding: 16px 22px;
 
@@ -835,6 +836,10 @@
 
   .program-main {
     margin-left: 0;
+  }
+
+  .age-notice {
+    max-width: none;
   }
 
   .program-copy {
