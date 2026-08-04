@@ -942,6 +942,11 @@
     grid-template-columns: 1fr;
   }
 
+  .hero-detail {
+    align-items: center;
+    text-align: center;
+  }
+
   .hero-detail + .hero-detail {
     border-top: 1px solid rgba(7, 27, 59, 0.1);
     border-left: 0;
