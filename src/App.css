@@ -1080,6 +1080,10 @@
     padding: 22px;
   }
 
+  .weather-reminder span {
+    text-align: left;
+  }
+
   .membership-card .section-label {
     justify-content: center;
   }
