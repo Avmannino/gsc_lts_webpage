@@ -24,8 +24,6 @@ const programImages = [
   },
 ];
 
-const REGISTRATION_URL = "";
-
 const equipmentItems = [
   {
     title: "Hockey Helmet",
@@ -129,44 +127,6 @@ function PhotoCard({ fileName, alt, className, index }) {
   );
 }
 
-function RegisterButton() {
-  const [showNotice, setShowNotice] = useState(false);
-
-  if (REGISTRATION_URL) {
-    return (
-      <a
-        className="secondary-button"
-        href={REGISTRATION_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Registration
-      </a>
-    );
-  }
-
-  return (
-    <div className="register-button-wrap">
-      <button
-        type="button"
-        className="secondary-button"
-        onClick={() => setShowNotice((value) => !value)}
-      >
-        Registration
-      </button>
-
-      {showNotice && (
-        <div className="register-notice" role="status">
-          <strong>Check Back Later...</strong>
-          <p>
-            We are not currently accepting registrations for this program.
-          </p>
-        </div>
-      )}
-    </div>
-  );
-}
-
 function EquipmentItem({ title, description }) {
   return (
     <article className="equipment-item">
@@ -212,15 +172,6 @@ function App() {
                 <span className="hero-detail__label">Program Focus</span>
                 <strong>Beginning Skaters</strong>
               </div>
-            </div>
-
-            <div className="hero__actions">
-              <a className="primary-button" href="#program-details">
-                Program Details
-                <ArrowIcon />
-              </a>
-
-              <RegisterButton />
             </div>
           </div>
 
@@ -272,7 +223,7 @@ function App() {
                 <span className="age-notice__symbol">*</span>
 
                 <p>
-                  Skaters must be 3 years of age to participate.
+                  Skaters must be 3 years of age to participate. Registration is open to members only.
                 </p>
               </div>
             </div>
@@ -323,6 +274,36 @@ function App() {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="membership-card">
+            <div className="section-label section-label--light">
+              Membership
+            </div>
+
+            <h2>Interested in joining GSC?</h2>
+
+            <div className="membership-card__divider" />
+
+            <p>
+              Greenwich Skating Club is a private, member-based club.
+              Prospective members can learn more about the application
+              process, membership requirements, and the steps involved
+              in joining.
+            </p>
+
+            <p>
+              Interested in joining? Email{" "}
+              <a href="mailto:gscadmissions@greenwichskatingclub.org">
+                gscadmissions@greenwichskatingclub.org
+              </a>
+              .
+            </p>
+
+            <a className="membership-card__link" href="/prospective-members">
+              Prospective Members
+              <ArrowIcon />
+            </a>
           </div>
         </div>
       </section>
