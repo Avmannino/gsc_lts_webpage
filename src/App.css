@@ -826,10 +826,17 @@
   .membership-card {
     grid-column: auto;
     grid-row: auto;
+    min-width: 0;
   }
 
   .program-main {
     margin-left: 0;
+  }
+
+  .program-heading h2 {
+    max-width: 100%;
+    font-size: clamp(2.4rem, 8vw, 4.6rem);
+    white-space: normal;
   }
 
   .equipment-callout {
@@ -838,10 +845,6 @@
 
   .membership-card {
     max-width: none;
-  }
-
-  .program-heading h2 {
-    font-size: clamp(2.2rem, 11cqw, 10.5rem);
   }
 
   .age-notice {
