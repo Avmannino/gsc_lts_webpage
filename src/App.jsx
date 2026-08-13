@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Footer from "./Footer.jsx";
 
 const programImages = [
   {
@@ -142,172 +143,176 @@ function EquipmentItem({ title, description }) {
 
 function App() {
   return (
-    <main className="page">
-      <section className="hero">
-        <div className="hero__background-shape hero__background-shape--one" />
-        <div className="hero__background-shape hero__background-shape--two" />
+    <>
+      <main className="page">
+        <section className="hero">
+          <div className="hero__background-shape hero__background-shape--one" />
+          <div className="hero__background-shape hero__background-shape--two" />
 
-        <div className="hero__inner">
-          <div className="hero__content">
-            <h1>
-              Learn to
-              <span className="hero-title-skate">
-                <HeroLogo />
-                Skate
-              </span>
-            </h1>
+          <div className="hero__inner">
+            <div className="hero__content">
+              <h1>
+                Learn to
+                <span className="hero-title-skate">
+                  <HeroLogo />
+                  Skate
+                </span>
+              </h1>
 
-            <p className="hero__intro">
-              A fun introduction to skating that helps children develop
-              balance, coordination and confidence on the ice.
-            </p>
-
-            <div className="hero__details">
-              <div className="hero-detail">
-                <span className="hero-detail__label">Age Group</span>
-                <strong>3–5 Years</strong>
-              </div>
-
-              <div className="hero-detail">
-                <span className="hero-detail__label">Program Focus</span>
-                <strong>Beginning Skaters</strong>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="hero__gallery"
-            aria-label="Learn to Skate program photo gallery"
-          >
-            {programImages.map((image, index) => (
-              <PhotoCard
-                key={image.fileName}
-                fileName={image.fileName}
-                alt={image.alt}
-                className={image.className}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="hero__bottom-line" />
-      </section>
-
-      <section id="program-details" className="program-section">
-        <div className="section-container program-layout">
-          <div className="program-main">
-            <div className="program-heading">
-              <div className="section-label">The Program</div>
-
-              <h2>First steps on the ice.</h2>
-            </div>
-
-            <div className="program-copy">
-              <p>
-                Designed for beginning skaters ages 3–5 years, the Learn to
-                Skate program stresses preliminary coordination and strength
-                to maneuver on skates. This class will include fun and games
-                to encourage enjoyment of skating.
+              <p className="hero__intro">
+                A fun introduction to skating that helps children develop
+                balance, coordination and confidence on the ice.
               </p>
 
-              <p>
-                In Learn to Skate, players are introduced to basic skating
-                skills such as balance, agility and edge control. Skating is
-                the foundation to all other hockey skills. GSC encourages
-                all current and future Mini-Mite players to enroll in Learn
-                to Skate classes.
-              </p>
+              <div className="hero__details">
+                <div className="hero-detail">
+                  <span className="hero-detail__label">Age Group</span>
+                  <strong>3–5 Years</strong>
+                </div>
 
-              <div className="age-notice">
-                <span className="age-notice__symbol">*</span>
-
-                <p>
-                  Skaters must be 3 years of age to participate. Registration is open to members only.
-                </p>
+                <div className="hero-detail">
+                  <span className="hero-detail__label">Program Focus</span>
+                  <strong>Beginning Skaters</strong>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div id="required-equipment" className="equipment-callout">
-            <div className="equipment-panel__intro">
-              <div className="section-label section-label--light">
-                What to Bring
-              </div>
-
-              <h2>Required Equipment</h2>
-
-              <p>
-                Each skater should arrive dressed and ready for a safe,
-                comfortable session on the ice.
-              </p>
-            </div>
-
-            <div className="equipment-grid">
-              {equipmentItems.map((item) => (
-                <EquipmentItem
-                  key={item.title}
-                  title={item.title}
-                  description={item.description}
+            <div
+              className="hero__gallery"
+              aria-label="Learn to Skate program photo gallery"
+            >
+              {programImages.map((image, index) => (
+                <PhotoCard
+                  key={image.fileName}
+                  fileName={image.fileName}
+                  alt={image.alt}
+                  className={image.className}
+                  index={index}
                 />
               ))}
             </div>
+          </div>
 
-            <div className="weather-reminder">
-              <div className="weather-reminder__icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48">
-                  <path d="M24 5v38" />
-                  <path d="m13 11 22 26" />
-                  <path d="m35 11-22 26" />
-                  <path d="M5 24h38" />
-                  <path d="m11 13 26 22" />
-                  <path d="m37 13-26 22" />
-                </svg>
+          <div className="hero__bottom-line" />
+        </section>
+
+        <section id="program-details" className="program-section">
+          <div className="section-container program-layout">
+            <div className="program-main">
+              <div className="program-heading">
+                <div className="section-label">The Program</div>
+
+                <h2>First steps on the ice.</h2>
               </div>
 
-              <div>
-                <span>Cold Weather Reminder</span>
+              <div className="program-copy">
+                <p>
+                  Designed for beginning skaters ages 3–5 years, the Learn to
+                  Skate program stresses preliminary coordination and strength
+                  to maneuver on skates. This class will include fun and games
+                  to encourage enjoyment of skating.
+                </p>
 
                 <p>
-                  Please remember to dress your child appropriately,
-                  especially in extremely cold weather.
+                  In Learn to Skate, players are introduced to basic skating
+                  skills such as balance, agility and edge control. Skating is
+                  the foundation to all other hockey skills. GSC encourages
+                  all current and future Mini-Mite players to enroll in Learn
+                  to Skate classes.
                 </p>
+
+                <div className="age-notice">
+                  <span className="age-notice__symbol">*</span>
+
+                  <p>
+                    Skaters must be 3 years of age to participate. Registration is open to members only.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="membership-card">
-            <div className="section-label section-label--light">
-              Membership
+            <div id="required-equipment" className="equipment-callout">
+              <div className="equipment-panel__intro">
+                <div className="section-label section-label--light">
+                  What to Bring
+                </div>
+
+                <h2>Required Equipment</h2>
+
+                <p>
+                  Each skater should arrive dressed and ready for a safe,
+                  comfortable session on the ice.
+                </p>
+              </div>
+
+              <div className="equipment-grid">
+                {equipmentItems.map((item) => (
+                  <EquipmentItem
+                    key={item.title}
+                    title={item.title}
+                    description={item.description}
+                  />
+                ))}
+              </div>
+
+              <div className="weather-reminder">
+                <div className="weather-reminder__icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48">
+                    <path d="M24 5v38" />
+                    <path d="m13 11 22 26" />
+                    <path d="m35 11-22 26" />
+                    <path d="M5 24h38" />
+                    <path d="m11 13 26 22" />
+                    <path d="m37 13-26 22" />
+                  </svg>
+                </div>
+
+                <div>
+                  <span>Cold Weather Reminder</span>
+
+                  <p>
+                    Please remember to dress your child appropriately,
+                    especially in extremely cold weather.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <h2>Interested in joining GSC?</h2>
+            <div className="membership-card">
+              <div className="section-label section-label--light">
+                Membership
+              </div>
 
-            <div className="membership-card__divider" />
+              <h2>Interested in joining GSC?</h2>
 
-            <p>
-              Greenwich Skating Club is a private, member-based club.
-              Prospective members can learn more about the application
-              process, membership requirements, and the steps involved
-              in joining.
-            </p>
+              <div className="membership-card__divider" />
 
-            <p>
-              Interested in joining? Email{" "}
-              <a href="mailto:gscadmissions@greenwichskatingclub.org">
-                gscadmissions@greenwichskatingclub.org
+              <p>
+                Greenwich Skating Club is a private, member-based club.
+                Prospective members can learn more about the application
+                process, membership requirements, and the steps involved
+                in joining.
+              </p>
+
+              <p>
+                Interested in joining? Email{" "}
+                <a href="mailto:gscadmissions@greenwichskatingclub.org">
+                  gscadmissions@greenwichskatingclub.org
+                </a>
+                .
+              </p>
+
+              <a className="membership-card__link" href="/prospective-members">
+                Prospective Members
+                <ArrowIcon />
               </a>
-              .
-            </p>
-
-            <a className="membership-card__link" href="/prospective-members">
-              Prospective Members
-              <ArrowIcon />
-            </a>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+
+      <Footer />
+    </>
   );
 }
 
