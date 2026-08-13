@@ -21,22 +21,32 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+body,
+#root {
   width: 100%;
+  min-height: 0;
+  height: auto;
   margin: 0;
   padding: 0;
+}
+
+html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding-top: 24px;
+  background: #f3f7fa;
 }
 
 body {
-  width: 100%;
   min-width: 320px;
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
   background: #f3f7fa;
+}
+
+#root {
+  display: block;
+  overflow-x: hidden;
 }
 
 button,
@@ -55,9 +65,4 @@ svg {
 
 a {
   color: inherit;
-}
-
-#root {
-  width: 100%;
-  min-height: 100%;
 }
