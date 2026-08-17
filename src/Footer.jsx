@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import "./Footer.css";
 
 /*
@@ -7,11 +8,14 @@ import "./Footer.css";
   Every internal footer link below is built from
   this base URL.
 */
-const SITE_URL = "https://www.greenwichskatingclub.com";
+const SITE_URL =
+  "https://www.greenwichskatingclub.com";
 
-const MEMBER_LOGIN_URL = "https://www.greenwichskatingclub.org/login";
+const MEMBER_LOGIN_URL =
+  "https://www.greenwichskatingclub.org/login";
 
-const ADMISSIONS_EMAIL = "gscadmissions@greenwichskatingclub.org";
+const ADMISSIONS_EMAIL =
+  "gscadmissions@greenwichskatingclub.org";
 
 const ADMISSIONS_PHONE = "(203) 622-9583";
 
@@ -92,7 +96,10 @@ const exploreGroups = [
 
 function ArrowIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
       <path d="m9 5 7 7-7 7" />
     </svg>
   );
@@ -100,8 +107,17 @@ function ArrowIcon() {
 
 function EmailIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="3" y="5" width="18" height="14" rx="2" />
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="14"
+        rx="2"
+      />
 
       <path d="m4 7 8 6 8-6" />
     </svg>
@@ -110,7 +126,10 @@ function EmailIcon() {
 
 function PinIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
       <path
         d="
           M20 10
@@ -120,14 +139,21 @@ function PinIcon() {
         "
       />
 
-      <circle cx="12" cy="10" r="2.5" />
+      <circle
+        cx="12"
+        cy="10"
+        r="2.5"
+      />
     </svg>
   );
 }
 
 function PhoneIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
     </svg>
   );
@@ -135,12 +161,30 @@ function PhoneIcon() {
 
 function InstagramIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+      />
 
-      <circle cx="12" cy="12" r="4" />
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+      />
 
-      <circle className="icon-fill" cx="17.5" cy="6.5" r="1" />
+      <circle
+        className="icon-fill"
+        cx="17.5"
+        cy="6.5"
+        r="1"
+      />
     </svg>
   );
 }
@@ -154,7 +198,9 @@ function FooterLogo() {
       aria-label="Greenwich Skating Club home"
     >
       <img
-        src={`${import.meta.env.BASE_URL}gsc-logo.png`}
+        src={`${
+          import.meta.env.BASE_URL
+        }gsc-logo.png`}
         alt="Greenwich Skating Club"
       />
     </a>
@@ -162,28 +208,103 @@ function FooterLogo() {
 }
 
 function ExploreMenu() {
+  const [openGroups, setOpenGroups] = useState(() => new Set());
+  const [panelHeights, setPanelHeights] = useState({});
+  const panelRefs = useRef(new Map());
+
+  useEffect(() => {
+    const heights = {};
+
+    panelRefs.current.forEach((node, title) => {
+      heights[title] = node.scrollHeight;
+    });
+
+    setPanelHeights(heights);
+  }, []);
+
+  const toggleGroup = (title) => {
+    setOpenGroups((current) => {
+      const next = new Set(current);
+
+      if (next.has(title)) {
+        next.delete(title);
+      } else {
+        next.add(title);
+      }
+
+      return next;
+    });
+  };
+
   return (
-    <nav className="footer-menu" aria-label="Footer navigation">
+    <nav
+      className="footer-menu"
+      aria-label="Footer navigation"
+    >
       <h2>Explore</h2>
 
       <div className="footer-menu__groups">
-        {exploreGroups.map((group) => (
-          <div className="footer-menu__group" key={group.title}>
-            <h3 className="footer-menu__group-title">{group.title}</h3>
+        {exploreGroups.map((group) => {
+          const isOpen = openGroups.has(group.title);
+          const measuredHeight = panelHeights[group.title];
 
-            <ul>
-              {group.links.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} target="_top">
-                    <span>{link.label}</span>
+          return (
+            <div
+              className="footer-menu__group"
+              key={group.title}
+            >
+              <button
+                type="button"
+                className="footer-menu__group-title"
+                onClick={() => toggleGroup(group.title)}
+                aria-expanded={isOpen}
+              >
+                <span>{group.title}</span>
 
-                    <ArrowIcon />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+                <span
+                  className={`footer-menu__group-arrow${
+                    isOpen ? " footer-menu__group-arrow--open" : ""
+                  }`}
+                  aria-hidden="true"
+                >
+                  <ArrowIcon />
+                </span>
+              </button>
+
+              <div
+                className={`footer-menu__group-panel${
+                  isOpen ? " footer-menu__group-panel--open" : ""
+                }`}
+                style={{
+                  maxHeight: isOpen ? `${measuredHeight ?? 600}px` : "0px",
+                }}
+              >
+                <ul
+                  ref={(node) => {
+                    if (node) {
+                      panelRefs.current.set(group.title, node);
+                    } else {
+                      panelRefs.current.delete(group.title);
+                    }
+                  }}
+                >
+                  {group.links.map((link) => (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        target="_top"
+                      >
+                        <span>{link.label}</span>
+
+                        <ArrowIcon />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </nav>
   );
@@ -191,32 +312,48 @@ function ExploreMenu() {
 
 function ConnectPanel() {
   return (
-    <section className="footer-connect" aria-labelledby="connect-title">
+    <section
+      className="footer-connect"
+      aria-labelledby="connect-title"
+    >
       <div className="footer-connect__info">
-        <h2 id="connect-title">Connect</h2>
+        <h2 id="connect-title">
+          Connect
+        </h2>
 
         <p>
-          Questions about joining Greenwich Skating Club or visiting the
-          rink?
+          Questions about joining Greenwich Skating
+          Club or visiting the rink?
         </p>
 
         <div className="footer-connect__details">
-          <a href={`${SITE_URL}/directions`} target="_top">
+          <a
+            href={`${SITE_URL}/directions`}
+            target="_top"
+          >
             <PinIcon />
 
-            <span>Cardinal Road · Greenwich, Connecticut</span>
+            <span>
+              Cardinal Road · Greenwich, Connecticut
+            </span>
           </a>
 
           <a href={`mailto:${ADMISSIONS_EMAIL}`}>
             <EmailIcon />
 
-            <span>{ADMISSIONS_EMAIL}</span>
+            <span>
+              {ADMISSIONS_EMAIL}
+            </span>
           </a>
 
-          <a href={`tel:+1${ADMISSIONS_PHONE.replace(/\D/g, "")}`}>
+          <a
+            href={`tel:+1${ADMISSIONS_PHONE.replace(/\D/g, "")}`}
+          >
             <PhoneIcon />
 
-            <span>Phone: {ADMISSIONS_PHONE}</span>
+            <span>
+              Phone: {ADMISSIONS_PHONE}
+            </span>
           </a>
         </div>
 
@@ -239,7 +376,9 @@ function ConnectPanel() {
         >
           <InstagramIcon />
 
-          <span>Follow GSC on Instagram</span>
+          <span>
+            Follow GSC on Instagram
+          </span>
         </a>
       </div>
 
@@ -256,19 +395,29 @@ function ConnectPanel() {
 }
 
 function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear =
+    new Date().getFullYear();
 
   return (
     <footer className="site-footer">
-      <div className="site-footer__accent" aria-hidden="true">
+      <div
+        className="site-footer__accent"
+        aria-hidden="true"
+      >
         <span />
         <span />
       </div>
 
-      <div className="site-footer__rings" aria-hidden="true" />
+      <div
+        className="site-footer__rings"
+        aria-hidden="true"
+      />
 
       <div className="footer-container site-footer__main">
-        <section className="footer-brand" aria-label="Greenwich Skating Club">
+        <section
+          className="footer-brand"
+          aria-label="Greenwich Skating Club"
+        >
           <FooterLogo />
         </section>
 
@@ -279,7 +428,9 @@ function Footer() {
 
       <div className="site-footer__bottom">
         <div className="footer-container site-footer__bottom-inner">
-          <p>© {currentYear} Greenwich Skating Club</p>
+          <p>
+            © {currentYear} Greenwich Skating Club
+          </p>
         </div>
       </div>
     </footer>
