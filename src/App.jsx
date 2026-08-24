@@ -302,8 +302,8 @@ function App() {
                 .
               </p>
 
-              <a className="membership-card__link" href="/prospective-members">
-                Prospective Members
+              <a className="membership-card__link" href="/admissions">
+                Admissions Process
                 <ArrowIcon />
               </a>
             </div>
