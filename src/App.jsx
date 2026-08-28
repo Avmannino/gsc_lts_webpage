@@ -172,7 +172,7 @@ function App() {
 
                 <div className="hero-detail">
                   <span className="hero-detail__label">Program Focus</span>
-                  <strong>Beginning Skaters</strong>
+                  <strong>Beginner Skaters</strong>
                 </div>
               </div>
             </div>
@@ -197,12 +197,15 @@ function App() {
         </section>
 
         <section id="program-details" className="program-section">
+          <div className="hero__background-shape hero__background-shape--one" />
+          <div className="hero__background-shape hero__background-shape--two" />
+
           <div className="section-container program-layout">
             <div className="program-main">
               <div className="program-heading">
                 <div className="section-label">The Program</div>
 
-                <h2>First steps on the ice.</h2>
+                <h2>First steps on the ice</h2>
               </div>
 
               <div className="program-copy">
@@ -225,7 +228,10 @@ function App() {
                   <span className="age-notice__symbol">*</span>
 
                   <p>
-                    Skaters must be 3 years of age to participate. Registration is open to members only.
+                    Skaters must be 3 years of age to participate.{" "}
+                    <span className="age-notice__highlight">
+                      Registration is open to members only.
+                    </span>
                   </p>
                 </div>
               </div>
@@ -295,11 +301,8 @@ function App() {
               </p>
 
               <p>
-                Interested in joining? Email{" "}
-                <a href="mailto:gscadmissions@greenwichskatingclub.org">
-                  gscadmissions@greenwichskatingclub.org
-                </a>
-                .
+                Interested in joining? Visit our Admissions page below to
+                apply:
               </p>
 
               <a className="membership-card__link" href="/admissions">

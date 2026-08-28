@@ -38,7 +38,8 @@
     linear-gradient(128deg, #f7fbfd 0%, #e9f2f7 58%, #dfeaf2 100%);
 }
 
-.hero::before {
+.hero::before,
+.program-section::before {
   position: absolute;
   z-index: -1;
   top: -230px;
@@ -418,8 +419,16 @@
 
 .program-section {
   position: relative;
+  isolation: isolate;
   padding: clamp(40px, 5vw, 70px) 0 clamp(85px, 10vw, 145px);
-  background: var(--gsc-white);
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 92% 7%,
+      rgba(93, 154, 202, 0.25),
+      transparent 30%
+    ),
+    linear-gradient(128deg, #f7fbfd 0%, #e9f2f7 58%, #dfeaf2 100%);
 }
 
 .program-layout {
@@ -470,9 +479,9 @@
 
 .age-notice {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
-  gap: 12px;
+  gap: 6px;
 
   max-width: 420px;
   margin-top: 20px;
@@ -497,6 +506,10 @@
   font-weight: 700;
   letter-spacing: 0.035em;
   line-height: 1.5;
+}
+
+.age-notice__highlight {
+  color: var(--gsc-red);
 }
 
 /* =========================================================
@@ -552,13 +565,6 @@
 
 .membership-card p + p {
   margin-top: 8px;
-}
-
-.membership-card a {
-  color: var(--gsc-white);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 
 .membership-card a.membership-card__link {
@@ -936,6 +942,7 @@
   }
 
   .hero::before,
+  .program-section::before,
   .hero__background-shape--one {
     display: none;
   }
