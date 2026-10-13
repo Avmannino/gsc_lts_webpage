@@ -339,8 +339,6 @@
 
   margin-top: 27px;
   padding-top: 40px;
-
-  border-top: 1px solid var(--footer-line);
 }
 
 .footer-connect__info {
@@ -708,8 +706,6 @@
 
   .footer-connect {
     padding-top: 10px;
-
-    border-top: none;
   }
 
   .footer-connect__info {
