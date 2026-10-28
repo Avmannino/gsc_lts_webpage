@@ -47,19 +47,6 @@ const equipmentItems = [
   },
 ];
 
-function ArrowIcon() {
-  return (
-    <svg
-      className="button-arrow"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path d="M5 12h13" />
-      <path d="m13 6 6 6-6 6" />
-    </svg>
-  );
-}
-
 function CheckIcon() {
   return (
     <svg
@@ -282,33 +269,6 @@ function App() {
                   </p>
                 </div>
               </div>
-            </div>
-
-            <div className="membership-card">
-              <div className="section-label section-label--light">
-                Membership
-              </div>
-
-              <h2>Interested in joining GSC?</h2>
-
-              <div className="membership-card__divider" />
-
-              <p>
-                Greenwich Skating Club is a private, member-based club.
-                Prospective members can learn more about the application
-                process, membership requirements, and the steps involved
-                in joining.
-              </p>
-
-              <p>
-                Interested in joining? Visit our Admissions page below to
-                apply:
-              </p>
-
-              <a className="membership-card__link" href="/admissions">
-                Admissions Process
-                <ArrowIcon />
-              </a>
             </div>
           </div>
         </section>

@@ -420,7 +420,7 @@
 .program-section {
   position: relative;
   isolation: isolate;
-  padding: clamp(40px, 5vw, 70px) 0 clamp(85px, 10vw, 145px);
+  padding: clamp(40px, 5vw, 70px) 0 clamp(50px, 6vw, 85px);
   overflow: hidden;
   background:
     radial-gradient(
@@ -513,105 +513,12 @@
 }
 
 /* =========================================================
-   MEMBERSHIP
-   ========================================================= */
-
-.membership-card {
-  grid-column: 1;
-  grid-row: 2;
-
-  max-width: 760px;
-  margin-top: 20px;
-  padding: clamp(22px, 2.4vw, 30px) clamp(28px, 3vw, 40px);
-
-  border-radius: 26px;
-  background:
-    radial-gradient(
-      circle at 85% -20%,
-      rgba(93, 154, 202, 0.35),
-      transparent 55%
-    ),
-    linear-gradient(165deg, var(--gsc-blue) 0%, var(--gsc-navy) 100%);
-  box-shadow: 0 30px 75px rgba(7, 27, 59, 0.16);
-}
-
-.membership-card h2 {
-  margin: 8px 0 12px;
-  color: var(--gsc-white);
-  font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(2.4rem, 3.4vw, 3.4rem);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 0.95;
-  text-transform: uppercase;
-}
-
-.membership-card__divider {
-  width: 56px;
-  height: 4px;
-  margin-bottom: 14px;
-
-  border-radius: 100px;
-  background: var(--gsc-red);
-}
-
-.membership-card p {
-  margin: 0;
-  color: #bdcfe0;
-  font-size: 0.9rem;
-  font-weight: 500;
-  line-height: 1.75;
-}
-
-.membership-card p + p {
-  margin-top: 8px;
-}
-
-.membership-card a.membership-card__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  margin-top: 16px;
-
-  color: var(--gsc-red);
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  text-decoration: none;
-  text-transform: uppercase;
-
-  transition: gap 180ms ease;
-}
-
-.membership-card a.membership-card__link:hover {
-  gap: 15px;
-}
-
-.membership-card__link .button-arrow {
-  width: 18px;
-  height: 18px;
-  stroke-width: 2.2;
-}
-
-.button-arrow {
-  width: 20px;
-  height: 20px;
-  overflow: visible;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* =========================================================
    EQUIPMENT
    ========================================================= */
 
 .equipment-callout {
   grid-column: 2;
-  grid-row: 1 / span 2;
+  grid-row: 1;
 
   margin-left: 40px;
   padding: clamp(28px, 3vw, 38px);
@@ -831,8 +738,7 @@
   }
 
   .program-main,
-  .equipment-callout,
-  .membership-card {
+  .equipment-callout {
     grid-column: auto;
     grid-row: auto;
     min-width: 0;
@@ -850,10 +756,6 @@
 
   .equipment-callout {
     margin-left: 0;
-  }
-
-  .membership-card {
-    max-width: none;
   }
 
   .age-notice {
@@ -1053,7 +955,7 @@
   }
 
   .program-section {
-    padding: 40px 0 78px;
+    padding: 40px 0 50px;
   }
 
   .program-heading .section-label {
@@ -1093,15 +995,6 @@
 
   .weather-reminder span {
     text-align: left;
-  }
-
-  .membership-card .section-label {
-    justify-content: center;
-  }
-
-  .membership-card__divider {
-    margin-right: auto;
-    margin-left: auto;
   }
 }
 
